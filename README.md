@@ -4,9 +4,10 @@
 重写View的onMeasure(...)和onDraw(...)方法
 
 在onMeasure(...)获取控件的宽高：控件为正方形，取宽高中小的那个。
-   //测量，使控件为正方形
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+   
+      //测量，使控件为正方形
+         @Override
+       protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 
@@ -27,8 +28,10 @@
     
     
 在onDraw(...)使用Canvas,Paint画棋盘（十行十列），棋子,检查游戏是否已经结束。
-  @Override
-    protected void onDraw(Canvas canvas) {
+
+
+      @Override
+       protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawBoard(canvas);
         drawPieces(canvas);
@@ -36,8 +39,10 @@
     }
     
 在onTouchEvent(...)方法中记录下用户点击对应的棋盘上的坐标点，然后重绘这个自定义控件(invalidate())
-  @Override
-    public boolean onTouchEvent(MotionEvent event) {
+
+
+      @Override
+      public boolean onTouchEvent(MotionEvent event) {
         if (mIsGameOver) return false;
         if (event.getAction() == MotionEvent.ACTION_UP) {
             int x = (int) event.getX();
